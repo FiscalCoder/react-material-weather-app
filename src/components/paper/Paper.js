@@ -11,6 +11,8 @@ function Paper({ geoData, getWeatherData }) {
 
   const [lastUpdatedTime, setLastUpdatedTime] = useState(0);
 
+  let pp = 0
+
   const mainData = geoData.main
   const getTimeIn12Hour = (timestamp) => {
     var time = new Date(timestamp);
