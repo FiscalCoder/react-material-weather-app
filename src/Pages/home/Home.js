@@ -45,22 +45,19 @@ function Home() {
       {/* <Sidebar /> */}
       <div className="homeContainer">
         <Navbar />
-        <div onClick={getCurrentGeoLocation}>BUTTON</div>
-        {geoData.id ? "PRESENT" : "ABSENT"}
-        <div>{JSON.stringify(geoData)}</div>
         {geoData.id &&
           <>
             <div className=" widgets">
               <CustomPaper geoData={geoData} getWeatherData={getWeatherData} />
             </div>
             <div className="charts">
-              <Featured />
+              {/* <Featured /> */}
               <Chart />
             </div>
-            <div className="listContainer">
+            {/* <div className="listContainer">
               <div className="listTitle">Latest Transactions</div>
               <List />
-            </div>
+            </div> */}
 
           </>}
       </div>

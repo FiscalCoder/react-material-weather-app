@@ -11,8 +11,6 @@ function Paper({ geoData, getWeatherData }) {
 
   const [lastUpdatedTime, setLastUpdatedTime] = useState(0);
 
-  let pp = 0
-
   const mainData = geoData.main
   const getTimeIn12Hour = (timestamp) => {
     var time = new Date(timestamp);
@@ -26,15 +24,47 @@ function Paper({ geoData, getWeatherData }) {
 
   setInterval(function () {
     let lastUpdatedMin = getMinutesBetween2Timestamps(new Date().getTime(), geoData.lastUpdatedTime)
+    console.log(lastUpdatedMin, lastUpdatedTime, geoData.lastUpdatedTime)
     if (lastUpdatedMin !== lastUpdatedTime) {
       console.log("CHANGE")
       setLastUpdatedTime(lastUpdatedMin)
     }
-  }, 1000);
+  }, 5000);
 
 
   return (
     <>
+      <div className="customPaper">
+        <div className="flex-row" style={{ height: "100%" }}>
+          <div className="flex-container">
+            <div className="flex-item">
+              <p className="title">{"Location"}</p>
+              <p>
+                {geoData.district},
+              </p>
+              <p>
+                {geoData.city}
+              </p>
+              <p>{geoData.state}</p>
+            </div>
+            <div className="flex-item">
+              <p className="title">{"Last Updated"}</p>
+              <p>
+                {lastUpdatedTime} min ago
+                <br />
+                <Button onClick={() => {
+                  setLastUpdatedTime(0);
+                  getWeatherData();
+                }}><RefreshIcon /></Button>
+              </p>
+              <p>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <div className="customPaper">
         <div className="center">
           <div className="flex-item">
@@ -73,7 +103,7 @@ function Paper({ geoData, getWeatherData }) {
             <div className="flex-item">
               <p className="title">{"Pressure"}</p>
               <p className="counter">
-                {mainData.pressure}in
+                {Math.round(mainData.pressure * 0.1)}kPa
               </p>
             </div>
             <div className="flex-item">
@@ -122,35 +152,6 @@ function Paper({ geoData, getWeatherData }) {
       {"data.icon"}
     </div> */}
       </div>
-
-      <div className="customPaper">
-        <div className="flex-row" style={{ height: "100%" }}>
-          <div className="flex-container">
-            <div className="flex-item">
-              <p className="title">{"Location"}</p>
-              <p>
-                {geoData.district},
-              </p>
-              <p>
-                {geoData.city}
-              </p>
-              <p>{geoData.state}</p>
-            </div>
-            <div className="flex-item">
-              <p className="title">{"Last Updated"}</p>
-              <p>
-                {lastUpdatedTime} min ago
-                <br />
-                <Button onClick={getWeatherData}><RefreshIcon /></Button>
-              </p>
-              <p>
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
 
 
     </>
