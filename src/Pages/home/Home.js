@@ -1,14 +1,8 @@
 import React from "react";
-import Featured from "../../components/featured/Featured";
 import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Widget from "../../components/widgets/Widget";
 import "./Home.scss";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
 import { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import CustomPaper from "../../components/paper/Paper";
 function Home() {
 
@@ -42,7 +36,6 @@ function Home() {
 
   return (
     <div className="home">
-      {/* <Sidebar /> */}
       <div className="homeContainer">
         <Navbar />
         {geoData.id &&
@@ -51,13 +44,8 @@ function Home() {
               <CustomPaper geoData={geoData} getWeatherData={getWeatherData} />
             </div>
             <div className="charts">
-              {/* <Featured /> */}
               <Chart />
             </div>
-            {/* <div className="listContainer">
-              <div className="listTitle">Latest Transactions</div>
-              <List />
-            </div> */}
 
           </>}
       </div>

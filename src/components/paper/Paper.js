@@ -1,5 +1,4 @@
 import "./Paper.scss";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import RefreshIcon from '@mui/icons-material/Refresh';
 
@@ -22,7 +21,7 @@ function Paper({ geoData, getWeatherData }) {
     return Math.floor(diff / 60000);
   }
 
-  setInterval(function () {
+  setInterval(() => {
     let lastUpdatedMin = getMinutesBetween2Timestamps(new Date().getTime(), geoData.lastUpdatedTime)
     console.log(lastUpdatedMin, lastUpdatedTime, geoData.lastUpdatedTime)
     if (lastUpdatedMin !== lastUpdatedTime) {
@@ -74,13 +73,6 @@ function Paper({ geoData, getWeatherData }) {
             </p>
           </div>
         </div>
-        {/* <div className="right">
-      <div className="percentage positive">
-        <KeyboardArrowUpIcon />
-        {"diff"}%
-      </div>
-      {"data.icon"}
-    </div> */}
       </div>
 
       <div className="customPaper">
@@ -142,36 +134,10 @@ function Paper({ geoData, getWeatherData }) {
           </div>
 
         </div>
-
-
-        {/* <div className="right">
-      <div className="percentage positive">
-        <KeyboardArrowUpIcon />
-        {"diff"}%
-      </div>
-      {"data.icon"}
-    </div> */}
       </div>
 
 
     </>
-
-    // <div className="customPaper">
-    //   <div className="left">
-    //     <span className="title">{"Fake Title"}</span>
-    //     <span className="counter">
-    //       {false && "$"} {"5000"}
-    //     </span>
-    //     <span className="link">{"data.link"}</span>
-    //   </div>
-    //   <div className="right">
-    //     <div className="percentage positive">
-    //       <KeyboardArrowUpIcon />
-    //       {"diff"}%
-    //     </div>
-    //     {"data.icon"}
-    //   </div>
-    // </div>
   );
 }
 

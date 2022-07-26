@@ -5,11 +5,11 @@ import {
 } from "@mui/icons-material";
 import { DarkModeContext } from "../../context/darkModeContext";
 
-import { styled } from '@mui/material/styles';
-import Switch from '@mui/material/Switch';
+// import { styled } from '@mui/material/styles';
+// import Switch from '@mui/material/Switch';
 
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+// import FormGroup from '@mui/material/FormGroup';
+// import FormControlLabel from '@mui/material/FormControlLabel';
 
 function Navbar() {
   const { dispatch } = useContext(DarkModeContext);
@@ -82,13 +82,6 @@ function Navbar() {
 
 
           <div className="item">
-            {/* <FormGroup>
-              <FormControlLabel
-                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                label="MUI switch"
-              />
-            </FormGroup> */}
-
             <DarkModeOutlined className="icon" />
             <div className="bottom">
               <div
@@ -103,14 +96,6 @@ function Navbar() {
 
           </div>
 
-
-          {/* <div className="item">
-            <img
-              src="https://www.moople.in/blog/wp-content/uploads/2018/02/mouse-hd-png1258.png"
-              alt=""
-              className="avatar"
-            />
-          </div> */}
         </div>
       </div>
     </div >
